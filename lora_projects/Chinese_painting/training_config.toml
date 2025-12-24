@@ -1,0 +1,49 @@
+# LoRA Training Configuration for Chinese_painting
+# Based on original Colab lora.py settings
+
+[additional_network_arguments]
+unet_lr = 1e-4
+text_encoder_lr = 5e-5
+network_dim = 32
+network_alpha = 16
+network_module = "networks.lora"
+
+[optimizer_arguments]
+learning_rate = 1e-4
+lr_scheduler = "cosine_with_restarts"
+lr_scheduler_num_cycles = 3
+lr_warmup_steps = 0
+optimizer_type = "AdamW8bit"
+
+[training_arguments]
+max_train_epochs = 10
+save_every_n_epochs = 1
+save_last_n_epochs = 10
+train_batch_size = 2
+clip_skip = 2
+min_snr_gamma = 5.0
+seed = 42
+max_token_length = 225
+xformers = true
+max_data_loader_n_workers = 8
+persistent_data_loader_workers = true
+save_precision = "fp16"
+mixed_precision = "fp16"
+output_dir = "./lora_projects/Chinese_painting/output"
+logging_dir = "./lora_projects/_logs"
+output_name = "Chinese_painting"
+log_prefix = "Chinese_painting"
+
+[model_arguments]
+# You need to download a base model and update this path
+# Example: sd-v1-5-pruned-noema-fp16.safetensors
+pretrained_model_name_or_path = "./models/sd-v1-5-pruned-noema-fp16.safetensors"
+
+[saving_arguments]
+save_model_as = "safetensors"
+
+[dreambooth_arguments]
+prior_loss_weight = 1.0
+
+[dataset_arguments]
+cache_latents = true
