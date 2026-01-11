@@ -1,5 +1,5 @@
 # LoRA 本地训练指南
-本项目主要参考https://github.com/kohya-ss/sd-scripts，根据中国水墨画进行了修改（例如加入了图片-描述对的输入等）
+本项目主要参考 https://github.com/kohya-ss/sd-scripts ，根据中国水墨画进行了修改（例如加入了图片-描述对的输入等）
 基于 Kohya-ss/sd-scripts 的 LoRA 训练流程
 
 ---
